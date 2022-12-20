@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    <p>hoge</p>
+    <p class="text-lg">hoge</p>
   </div>
 </template>
