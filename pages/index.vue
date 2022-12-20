@@ -1,8 +1,5 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
-const toggleDarkMode = () => {
-  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
-}
+const { colorMode, toggleDarkMode } = useDarkMode()
 </script>
 
 <template>
@@ -10,7 +7,7 @@ const toggleDarkMode = () => {
     <div class="flex items-center justify-between p-4">
       <h1 class="text-xl dark:text-white">Color mode: {{ $colorMode.value }}</h1>
       <form class="h-6">
-        <input type="checkbox" class="hidden" id="dark-mode" @change="toggleDarkMode">
+        <input type="checkbox" class="hidden" id="dark-mode" :checked="colorMode.preference === 'dark'" @change="toggleDarkMode">
         <label class="checkbox" for="dark-mode" />
       </form>
     </div>
