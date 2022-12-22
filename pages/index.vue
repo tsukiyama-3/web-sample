@@ -5,7 +5,9 @@ const { colorMode, toggleDarkMode } = useDarkMode()
 <template>
   <div class="w-screen h-screen bg-gray-100 dark:bg-slate-900">
     <div class="flex items-center justify-between p-4">
-      <h1 class="text-xl dark:text-white">Color mode: {{ $colorMode.value }}</h1>
+      <ClientOnly>
+        <h1 class="text-xl dark:text-white">Color mode: {{ $colorMode.value }}</h1>
+      </ClientOnly>
       <form class="h-6">
         <input type="checkbox" class="hidden" id="dark-mode" :checked="colorMode.preference === 'dark'" @change="toggleDarkMode">
         <label class="checkbox" for="dark-mode" />
